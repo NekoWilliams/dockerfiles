@@ -16,9 +16,11 @@ jobs:
       with:
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_TOKEN }}
-    - name: Build and Push ndn-all Docker Image
-      # if: contains(github.event.head_commit.message, '[ndn-all]')
+    - name: Set Version
       run: |
-        VERSION=$(date +%Y%m%d%H%M)
-        docker build -t hydrokhoos/ndn-all:${VERSION} ./ndn-all/
-        docker push hydrokhoos/ndn-all:${VERSION}
+        echo "version=$(date +%Y%m%d%H%M)" > $GITHUB_ENV
+    - name: Build and Push ndn-all Docker Image
+      if: contains(github.event.head_commit.message, '[ndn-all]')
+      run: |
+        docker build -t hydrokhoos/ndn-all:$version ./ndn-all/
+        docker push hydrokhoos/ndn-all:$version
