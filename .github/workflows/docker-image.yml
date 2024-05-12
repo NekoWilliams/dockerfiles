@@ -2,9 +2,6 @@ on:
   push:
     paths:
       - 'ndn-all/**'
-      - 'ndn-base/**'
-      - 'nfd/**'
-      - 'nlsr/**'
 
 jobs:
   build-and-push:
