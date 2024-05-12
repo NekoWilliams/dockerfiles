@@ -1,6 +1,5 @@
 FROM ubuntu:22.04
 
-USER root
 RUN apt-get update -y
 RUN apt install -y git vim pip sudo
 RUN apt-get install -y software-properties-common
