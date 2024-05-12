@@ -1,0 +1,17 @@
+name: Docker Image CI
+
+on:
+  push:
+    paths:
+      - 'ndn-all/**'
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+    - name: Build ndn-all Docker image
+      run: docker build . --file ./ndn-all/ --tag hydrokhoos/ndn-all:$(date +%s)
