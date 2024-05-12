@@ -22,5 +22,3 @@ jobs:
         VERSION=$(date +%Y%m%d%H%M)
         docker build -t hydrokhoos/ndn-all:${VERSION} ./ndn-all/
         docker push hydrokhoos/ndn-all:${VERSION}
-      env:
-        VERSION: ${{ github.sha }}
