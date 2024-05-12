@@ -1,9 +1,10 @@
 FROM ubuntu:22.04
 
 RUN apt-get update -y
-RUN apt-get install -y git vim pip sudo psmisc iputils-ping
-RUN apt-get install -y software-properties-common
-RUN apt-get install -y libpcap-dev libsystemd-dev pkg-config
+RUN apt-get install -y \ 
+  git vim pip sudo psmisc iputils-ping \
+  software-properties-common libpcap-dev \
+  libsystemd-dev pkg-config
 
 # python-ndn
 RUN pip install -U git+https://github.com/named-data/python-ndn.git
