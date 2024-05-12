@@ -23,10 +23,13 @@ jobs:
       with:
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_TOKEN }}
+    - name: Set Version
+      run: |
+        echo "version=$(date +%Y%m%d%H%M)" >> $GITHUB_ENV
     - name: Build and Push ndn-all Docker Image
       if: contains(github.event.head_commit.message, '[push ndn-all]') || github.event.inputs.image_to_build == 'ndn-all'
       uses: docker/build-push-action@v5
       with:
         file: ./ndn-all/Dockerfile
         push: true
-        tags: $(date +%Y%m%d%H%M),latest
+        tags: $version,latest
