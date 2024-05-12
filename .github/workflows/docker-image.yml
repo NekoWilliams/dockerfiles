@@ -14,4 +14,4 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     - name: Build ndn-all Docker image
-      run: docker build . --file ./ndn-all/ --tag hydrokhoos/ndn-all:$(date +%s)
+      run: docker build -t hydrokhoos/ndn-all:$(date +%s) ./ndn-all/
