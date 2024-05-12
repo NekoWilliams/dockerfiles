@@ -21,4 +21,4 @@ jobs:
       with:
         file: ./ndn-all/Dockerfile
         push: true
-        tags: $(date +%Y%m%d%H%M,latest
+        tags: $(date +%Y%m%d%H%M),latest
