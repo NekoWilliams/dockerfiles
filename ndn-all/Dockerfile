@@ -28,7 +28,7 @@ RUN cd NFD && \
   ./waf install
 RUN cp /usr/local/etc/ndn/nfd.conf.sample /usr/local/etc/ndn/nfd.conf
 
-# PSync library
+# PSync
 RUN git clone https://github.com/named-data/PSync.git
 RUN cd PSync && \
   ./waf configure && \
