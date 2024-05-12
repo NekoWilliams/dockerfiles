@@ -1,7 +1,7 @@
 on:
   push:
     paths:
-      - 'ndn-all/**'
+      - 'ndn-all/Dockerfile'
   workflow_dispatch:
     inputs:
         image_to_build:
