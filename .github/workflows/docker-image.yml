@@ -17,7 +17,7 @@ jobs:
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_TOKEN }}
     - name: Build and Push ndn-all Docker Image
-      if: contains(github.event.head_commit.message, '[ndn-all]')
+      # if: contains(github.event.head_commit.message, '[ndn-all]')
       run: |
         VERSION=$(date +%Y%m%d%H%M)
         docker build -t hydrokhoos/ndn-all:${VERSION} ./ndn-all/
