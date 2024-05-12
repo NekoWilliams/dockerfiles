@@ -1,7 +1,7 @@
 # ndn-all
 This Docker image includes some NDN software.
 
-https://hub.docker.com/repository/docker/hydrokhoos/ndn-all/general
+https://hub.docker.com/r/hydrokhoos/ndn-all
 
 ## Contents
 - [python-ndn](https://github.com/named-data/python-ndn)
