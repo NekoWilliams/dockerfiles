@@ -30,6 +30,5 @@ jobs:
         context: github-actions/docker-build-cache 
         push: true
         tags: $(date +%Y%m%d%H%M)
-        labels: ${{ steps.meta.outputs.labels }}
         cache-from: type=gha
         cache-to: type=gha,mode=max
