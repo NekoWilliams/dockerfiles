@@ -2,6 +2,7 @@ on:
   push:
     paths:
       - 'ndn-all/**'
+  workflow_dispatch:
 
 jobs:
   build-and-push:
