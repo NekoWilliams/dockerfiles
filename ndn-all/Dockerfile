@@ -1,7 +1,7 @@
 FROM ubuntu:22.04
 
 RUN apt-get update -y
-RUN apt install -y git vim pip sudo
+RUN apt install -y git vim pip sudo iputils-ping
 RUN apt-get install -y software-properties-common
 RUN apt-get install -y libpcap-dev libsystemd-dev pkg-config
 
