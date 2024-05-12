@@ -6,7 +6,6 @@ on:
 jobs:
   build-and-push:
     runs-on: ubuntu-latest
-
     steps:
     - uses: actions/checkout@v4
     - name: Set up Docker Buildx
@@ -16,19 +15,10 @@ jobs:
       with:
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_TOKEN }}
-    - name: Set Version
-      run: |
-        echo "version=$(date +%Y%m%d%H%M)" >> $GITHUB_ENV
     - name: Build and Push ndn-all Docker Image
-      # if: contains(github.event.head_commit.message, '[ndn-all]')
-      # run: |
-      #   docker build -t hydrokhoos/ndn-all:$version ./ndn-all/
-      #   docker push hydrokhoos/ndn-all:$version
+      if: contains(github.event.head_commit.message, '[ndn-all]')
       uses: docker/build-push-action@v5
       with:
         file: ./ndn-all/Dockerfile
-        context: github-actions/docker-build-cache 
         push: true
-        tags: $(date +%Y%m%d%H%M)
-        cache-from: type=gha
-        cache-to: type=gha,mode=max
+        tags: $(date +%Y%m%d%H%M, latest
