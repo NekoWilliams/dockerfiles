@@ -3,7 +3,7 @@ This Docker image includes some NDN software.
 
 https://hub.docker.com/repository/docker/hydrokhoos/ndn-all/general
 
-## Content
+## Contents
 - [python-ndn](https://github.com/named-data/python-ndn)
 - [ndn-cxx](https://github.com/named-data/ndn-cxx)
 - [NFD](https://github.com/named-data/NFD)
