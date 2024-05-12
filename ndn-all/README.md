@@ -13,5 +13,5 @@ https://hub.docker.com/repository/docker/hydrokhoos/ndn-all/general
 
 ## Usage
 ```bash
-docker pull hydrokhoos/ndn-all
+docker pull hydrokhoos/ndn-all:latest
 ```
