@@ -36,7 +36,6 @@ jobs:
         id: changed-file
         run: |
           if [ $(git diff --name-only HEAD~1 HEAD | grep 'Dockerfile') == "ndn-all/Dockerfile" ]; then
-            echo "::set-output name=dockerfile::ndn-all/Dockerfile"
             echo "dockerfile=ndn-all/Dockerfile" >> $GITHUB_OUTPUT
             echo "image=hydrokhoos/ndn-all" >> $GITHUB_OUTPUT
           elif [ $(git diff --name-only HEAD~1 HEAD | grep 'Dockerfile') == "ipfs-test/Dockerfile" ]; then
@@ -51,7 +50,9 @@ jobs:
         id: meta
         uses: docker/metadata-action@v5
         with:
-          images: ${{ steps.changed-file.outputs.image }}
+          images: |
+            hydrokhoos/ndn-all
+            hydrokhoos/ipfs-test
           tags: |
             type=schedule,pattern={{date 'YYYYMMDDhhmm' tz='Asia/Tokyo'}}
             type=raw,value=latest
