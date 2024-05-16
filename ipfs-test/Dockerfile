@@ -1,6 +1,6 @@
 FROM ubuntu:22.04
 
-COPY ./src/ /
+COPY ipfs-test/src/ /
 RUN chmod +x /start.sh
 
 RUN apt-get update
