@@ -53,7 +53,7 @@ jobs:
             echo "dockerfile=ipfs-test/Dockerfile" >> $GITHUB_OUTPUT
             echo "image=hydrokhoos/ipfs-test" >> $GITHUB_OUTPUT
           else
-            echo "dockerfile=${{ github.event.inputs.image_to_build }}" >> $GITHUB_OUTPUT
+            echo "dockerfile=${{ github.event.inputs.image_to_build }}/Dockerfile" >> $GITHUB_OUTPUT
             echo "image=hydrokhoos/${{ github.event.inputs.image_to_build }}" >> $GITHUB_OUTPUT
           fi
 
