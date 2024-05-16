@@ -51,8 +51,8 @@ jobs:
             echo "::set-output name=dockerfile::ipfs-test/Dockerfile"
             echo "::set-output name=image::hydrokhoos/ipfs-test"
           else
-            echo "::set-output name=dockerfile::${{ github.event.inputs.image_to_build }}/Dockerfile"
-            echo "::set-output name=image::hydrokhoos/${{ github.event.inputs.image_to_build }}"
+            echo "dockerfile=${{ github.event.inputs.image_to_build }}" >> $GITHUB_OUTPUT
+            echo "image=hydrokhoos/${{ github.event.inputs.image_to_build }}" >> $GITHUB_OUTPUT
           fi
 
       - name: Build and Push Docker Image
