@@ -1,5 +1,6 @@
 # ipfs-test
 
+For https://github.com/hydrokhoos/priv-ipfs
 This Docker image includes Kubo (IPFS client).
 
 https://hub.docker.com/r/hydrokhoos/ipfs-test
