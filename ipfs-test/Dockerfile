@@ -1,5 +1,6 @@
 FROM ubuntu:22.04
 
+# Copy start script
 COPY ipfs-test/src/ /
 RUN chmod +x /start.sh
 
