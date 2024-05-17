@@ -50,7 +50,8 @@ jobs:
         id: meta
         uses: docker/metadata-action@v5
         with:
-          images: ${{ steps.changed-file.outputs.image }}
+          images: |
+            ${{ steps.changed-file.outputs.image }}
           tags: |
             type=raw,value=latest
             type=schedule,pattern={{date 'YYYYMMDDhhmm' tz='Asia/Tokyo'}}
