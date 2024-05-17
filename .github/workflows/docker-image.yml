@@ -53,8 +53,12 @@ jobs:
           images: |
             ${{ steps.changed-file.outputs.image }}
           tags: |
-            type=raw,value=latest
-            type=schedule,pattern={{date 'YYYYMMDD-hhmm' tz='Asia/Tokyo'}}
+            # type=raw,value=latest
+            # type=schedule,pattern={{date 'YYYYMMDD-hhmm' tz='Asia/Tokyo'}}
+            type=ref,event=branch
+            type=ref,event=pr
+            type=semver,pattern={{version}}
+            type=semver,pattern={{major}}.{{minor}}
       
       - name: Build and Push Docker Image
         if: steps.changed-file.outputs.dockerfile != '' || github.event.inputs.image_to_build != ''
