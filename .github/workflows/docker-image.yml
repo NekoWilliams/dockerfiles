@@ -61,7 +61,7 @@ jobs:
           tags: |
             # type=schedule,pattern={{date 'YYYYMMDD-hhmm' tz='Asia/Tokyo'}}
             type=raw,value=latest
-            type=raw,value={{ steps.gen-date.outputs.date }}
+            type=raw,value=${{ steps.gen-date.outputs.date }}
       
       - name: Build and Push Docker Image
         if: steps.changed-file.outputs.dockerfile != '' || github.event.inputs.image_to_build != ''
