@@ -46,15 +46,19 @@ jobs:
             echo "image=hydrokhoos/${{ github.event.inputs.image_to_build }}" >> $GITHUB_OUTPUT
           fi
 
-      - name: Docker meta
-        id: meta
-        uses: docker/metadata-action@v5
-        with:
-          images: |
-            ${{ steps.changed-file.outputs.image }}
-          tags: |
-            type=raw,value=latest
-            type=schedule,pattern={{date 'YYYYMMDDhhmm' tz='Asia/Tokyo'}}
+      # - name: Docker meta
+      #   id: meta
+      #   uses: docker/metadata-action@v5
+      #   with:
+      #     images: |
+      #       ${{ steps.changed-file.outputs.image }}
+      #     tags: |
+      #       type=raw,value=latest
+      #       type=schedule,pattern={{date 'YYYYMMDDhhmm' tz='Asia/Tokyo'}}
+      - name: Generate tags
+        id: gen-tag
+        run: |
+          echo "tags=latest,$(date '+%Y%m%d%H%M')" >> $GITHUB_OUTPUT
       
       - name: Build and Push Docker Image
         if: steps.changed-file.outputs.dockerfile != '' || github.event.inputs.image_to_build != ''
@@ -62,4 +66,5 @@ jobs:
         with:
           file: ${{ steps.changed-file.outputs.dockerfile }}
           push: ${{ github.event_name != 'pull_request' }}
-          tags: ${{ steps.meta.outputs.tags }}
+          # tags: ${{ steps.meta.outputs.tags }}
+          tags: ${{ steps.gen-tags.outputs.tags }}
