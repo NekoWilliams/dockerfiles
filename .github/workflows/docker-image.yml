@@ -53,9 +53,8 @@ jobs:
           images: |
             ${{ steps.changed-file.outputs.image }}
           tags: |
-            # type=raw,value=latest
+            type=raw,value=latest
             type=schedule,pattern={{date 'YYYYMMDDhhmm' tz='Asia/Tokyo'}}
-            type=schedule
       
       - name: Build and Push Docker Image
         if: steps.changed-file.outputs.dockerfile != '' || github.event.inputs.image_to_build != ''
@@ -64,3 +63,4 @@ jobs:
           file: ${{ steps.changed-file.outputs.dockerfile }}
           push: ${{ github.event_name != 'pull_request' }}
           tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
