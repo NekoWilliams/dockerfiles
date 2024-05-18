@@ -1,7 +1,7 @@
 FROM ubuntu:22.04
 
 # Copy start script
-COPY ipfs-test/src/ /
+COPY ipfs-test/src/ /src/
 RUN chmod +x /start.sh
 
 RUN apt-get update
