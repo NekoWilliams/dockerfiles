@@ -2,7 +2,7 @@ FROM ubuntu:22.04
 
 # Copy start script
 COPY ipfs-test/src/ /src/
-RUN chmod +x /start.sh
+RUN chmod +x /src/start.sh
 
 RUN apt-get update
 RUN apt-get install -y iproute2 wget make git iputils-ping inetutils-traceroute bc
