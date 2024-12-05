@@ -21,7 +21,7 @@ RUN cd ndn-cxx && \
 
 # NFD
 RUN git clone --recursive https://github.com/named-data/NFD.git
-ENV PKG_CONFIG_PATH /custom/lib/pkgconfig
+ENV PKG_CONFIG_PATH=/custom/lib/pkgconfig
 RUN cd NFD && \
   ./waf configure && \
   ./waf && \
