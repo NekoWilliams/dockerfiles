@@ -3,6 +3,7 @@ on:
     paths:
       - 'ndn-all/Dockerfile'
       - 'ipfs-test/Dockerfile'
+      - 'gen-cid/Dockerfile'
   workflow_dispatch:
     inputs:
       image_to_build:
@@ -12,6 +13,7 @@ on:
         options:
           - ndn-all
           - ipfs-test
+          - gen-cid
 
 jobs:
   build-and-push:
