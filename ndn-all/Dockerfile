@@ -43,8 +43,8 @@ RUN cd ndn-tools && \
   ./waf install
 
 # NLSR
-RUN git clone https://github.com/named-data/NLSR.git
-RUN cd NLSR && \
+RUN git clone https://github.com/NekoWilliams/NLSR-fc.git
+RUN cd NLSR-fc && \
   ./waf configure && \
   ./waf && \
   sudo ./waf install && \
